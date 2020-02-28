@@ -10,7 +10,7 @@
     <div class="container productos ">
             {% for p in p2pApp %}
             <div class="card  proitems" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="{{ p.producto_fields.url }}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">{{ p.nombre }}</h5>
                   <h5 class="card-title">{{ p.precio }}</h5>

@@ -13,6 +13,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=20,null=True)
     precio = models.IntegerField(null=True)
     descripcion = models.CharField(max_length=250,null=True)
+    producto_fields = models.ImageField(upload_to='static/img')
     fkCategoria = models.ForeignKey(Categoria, on_delete = models.CASCADE, null= True)
 
     def __str__(self):
