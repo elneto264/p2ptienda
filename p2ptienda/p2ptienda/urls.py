@@ -26,10 +26,7 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('tienda/',include(('p2pApp.urls','p2pApp'))),
-]  
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/',include(('p2pApp.urls','p2pApp'))),

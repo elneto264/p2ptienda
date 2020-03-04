@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import View,ListView,TemplateView,CreateView
+from django.views.generic import View,ListView,TemplateView,CreateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 from .forms import ProForm, CarroForm
 from .models import Categoria, Producto, Carrito
@@ -38,6 +38,24 @@ class Carrazo(CreateView):
 
         self.object.save()
         return super(Carrazo,self).form_valid(form)
+
+class EliminiarCarrito(DeleteView):
+    model = Carrito
+    success_url= reverse_lazy('p2pApp:consultar_carrito')
+
+    def get(self, request, *args, **kwargs):
+        return self.post(request, *args, **kwargs)
+
+class PagarCarrito(DeleteView):
+    model = Carrito
+    #success_url= reverse_lazy('p2pApp:consultar_producto')
+
+    def showthis(request):
+        Carrito.objects.all().delete()
+        context={}
+        return render(request,'p2pApp:consultar_producto',context)
+
+
 
 
 
