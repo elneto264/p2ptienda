@@ -1,5 +1,11 @@
-<form method="POST">
+{% extends 'p2pApp/index.html' %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block content%}
+<form method="POST" class="cantidadCarrito">
     {% csrf_token %}
-    {{ form.as_p}}
+    {% bootstrap_form form %}
         <button class="btn btn-primary" type="submit">Confirmar</button>
 </form>
+{% endblock content%}

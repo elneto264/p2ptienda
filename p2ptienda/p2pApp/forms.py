@@ -34,5 +34,5 @@ class CarroForm(forms.ModelForm):
     class Meta:
         model = Carrito
         fields = [ 'cantidad']
-        labels= {'cantidad': 'indique la cantidad'}
+        labels= {'cantidad': 'Indique la cantidad deseada'}
 
