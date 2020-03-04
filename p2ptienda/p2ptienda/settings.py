@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'p2pApp',
+<<<<<<< HEAD
     'usuario',
+=======
+>>>>>>> ee067739651006e340e14deb9a4de2e7bb607437
     
 ]
 
