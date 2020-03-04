@@ -40,6 +40,23 @@ class Carrazo(CreateView):
         return super(Carrazo,self).form_valid(form)
 
 
+class Filtrar(CreateView):
+    model= Carrito
+    template_name = 'p2pApp/cestaProduct.html'
+    form_class = CarroForm
+    success_url = reverse_lazy('p2pApp:consultar_producto')
+
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        producto = Producto.objects.get(pk = self.kwargs.get('pk',None))
+        self.object.producto = producto
+        usuario = User.objects.get(pk = 1)
+        self.object.user = usuario
+
+        self.object.save()
+        return super(Carrazo,self).form_valid(form)
+
+
 
                 
 
