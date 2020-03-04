@@ -10,30 +10,14 @@
     <div class="container productos ">
             {% for p in p2pApp %}
             <div class="card  proitems" style="width: 18rem;">
-<<<<<<< HEAD
-                <input type="text" id="buscar">
-                <button onclick="Dajaxice.stock.search(find,{ 'param' : $('#buscar').val() });">Buscar</button>
-                <div id="found">
-                </div>
-                <img class="card-img-top" src="..." alt="Card image cap">
-=======
                 <img class="card-img-top" src="{{ p.producto_fields.url }}" alt="Card image cap">
->>>>>>> c44c8b2f789dc14e2d45c420f2521e74ddf689b7
                 <div class="card-body">
-<<<<<<< HEAD
                   <h5 class="card-title">{{ p.nombre }}</h5>
                   <h5 class="card-title">{{ p.precio }}</h5>
                   <h6 class="card-title">{{ p.fkCategoria }}</h6>
                   <p class="card-text">{{ p.descripcion }}</p>
                   <p class="Card">{{ p.id }}</p>
                   <a href="{% url 'p2pApp:cesta' p.id %}"class="btn btn-primary">Al carrito</a>
-=======
-                <h5 class="card-title">{{ p.nombre }}</h5>
-                <h5 class="card-title">{{ p.precio }}</h5>
-                <!--<h6 class="card-title">{{ p.fkCategoria }}</h6>-->
-                <p class="card-text">{{ p.descripcion }}</p>
-                <a href="#" class="btn btn-primary">Al carrito</a>
->>>>>>> ee067739651006e340e14deb9a4de2e7bb607437
                 </div>
             </div>
             {% endfor %}
