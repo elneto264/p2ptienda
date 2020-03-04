@@ -1,5 +1,5 @@
 from django import forms
-from .models import Producto, Categoria, Usuario
+from .models import Producto, Categoria, Carrito
 
 class ProForm (forms.ModelForm):
     class Meta:
@@ -29,3 +29,10 @@ class ProForm (forms.ModelForm):
             )
 
         }
+
+class CarroForm(forms.ModelForm):
+    class Meta:
+        model = Carrito
+        fields = [ 'cantidad']
+        labels= {'cantidad': 'indique la cantidad'}
+
