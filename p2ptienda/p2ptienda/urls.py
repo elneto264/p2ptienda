@@ -17,9 +17,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
-<<<<<< HEAD
 from p2pApp.views import Carrazo
-=======
 from p2pApp import views
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
@@ -37,7 +35,7 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/',include(('p2pApp.urls','p2pApp'))),
-    
+]  
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from usuario.views import RegistroUsuario,Login,logoutUsuario
@@ -46,21 +44,11 @@ from django.contrib.auth.decorators import login_required
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/',include(('p2pApp.urls','p2pApp'))),
-<<<<<<< HEAD
     path('registrar/',RegistroUsuario.as_view(),name='registrar'), 
     path('accounts/login/',Login.as_view(),name ='login'),
     path('logout/',login_required(logoutUsuario),name = 'logout'),
     
- ] 
-=======
-   
-    path('registrar/',RegistroUsuario.as_view(),name='registrar'), 
-    path('accounts/login/',Login.as_view(),name ='login'),
-    path('logout/',login_required(logoutUsuario),name = 'logout'),
->>>>>>> c44c8b2f789dc14e2d45c420f2521e74ddf689b7
-]
- 
->>>>>>> ee067739651006e340e14deb9a4de2e7bb607437
+ ]
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
