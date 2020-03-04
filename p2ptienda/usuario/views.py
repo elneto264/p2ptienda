@@ -15,9 +15,15 @@ class RegistroUsuario(CreateView):
     success_url = reverse_lazy('login')
 
 class Login(FormView):
+<<<<<<< HEAD
+    template_name = 'login.html'
+    form_class = FormularioLogin
+    success_url = reverse_lazy('p2pApp:consultar_producto')
+=======
     template_name = 'usuario/login.html'
     form_class = FormularioLogin
     success_url = reverse_lazy('index')
+>>>>>>> ee067739651006e340e14deb9a4de2e7bb607437
 
     def dispatch(self,request,*args,**kwargs):
         if request.user.is_authenticated:

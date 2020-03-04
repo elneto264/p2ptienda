@@ -39,6 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'p2pApp',
+<<<<<<< HEAD
+    'usuario',
+=======
+>>>>>>> ee067739651006e340e14deb9a4de2e7bb607437
+    
 ]
 
 MIDDLEWARE = [
@@ -75,12 +80,6 @@ WSGI_APPLICATION = 'p2ptienda.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-} """
 
 DATABASES = {
     'default': {
@@ -129,7 +128,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (BASE_DIR,'static')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
+ 
 MEDIA_URL = '/img/'
 
 

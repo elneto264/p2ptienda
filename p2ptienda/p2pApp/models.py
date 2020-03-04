@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -19,12 +20,13 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-class Usuario(models.Model):
-    nombre = models.CharField(max_length=20)
-    nombreUsuario = models.CharField(max_length=20)
-    clave = models.CharField(max_length=20)
+class Carrito(models.Model):
+    id = models.AutoField(primary_key = True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField(default=1)
+
 
     def __str__(self):
-        return self.nombre
-
+        return f'{self.cantidad} of {self.producto}'
 
