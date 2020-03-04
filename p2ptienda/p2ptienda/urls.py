@@ -17,11 +17,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
-<<<<<<< HEAD
 from p2pApp.views import Carrazo
-=======
 from p2pApp import views
-<<<<<<< HEAD
+
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
@@ -39,8 +37,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/',include(('p2pApp.urls','p2pApp'))),
     
-=======
->>>>>>> ee067739651006e340e14deb9a4de2e7bb607437
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from usuario.views import RegistroUsuario,Login,logoutUsuario
