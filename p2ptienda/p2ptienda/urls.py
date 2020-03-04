@@ -16,8 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from p2pApp import views
-
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+admin.autodiscover()
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf import settings
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
+urlpatterns = patterns('',
+    url(r'^stock/', include('stock.urls', namespace="stock")),
+    url(r'^admin/', include(admin.site.urls)),
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
+url(r'^uploads/(?P<path>.*)$','django.views.static.serve',{'document_root':settings.MEDIA_ROOT,}),
+)
+urlpatterns += staticfiles_urlpatterns()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/',include(('p2pApp.urls','p2pApp'))),
+    
 ]
