@@ -20,11 +20,18 @@ from django.urls import path,include
 from p2pApp import views
 from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from usuario.views import RegistroUsuario,Login,logoutUsuario
+from django.contrib.auth.decorators import login_required
  
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('tienda/',include(('p2pApp.urls','p2pApp'))),
+   
+    path('registrar/',RegistroUsuario.as_view(),name='registrar'), 
+    path('accounts/login/',Login.as_view(),name ='login'),
+    path('logout/',login_required(logoutUsuario),name = 'logout'),
 ]
  
 urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
