@@ -15,6 +15,7 @@ class RegistroUsuario(CreateView):
     success_url = reverse_lazy('login')
 
 class Login(FormView):
+
     template_name = 'login.html'
     form_class = FormularioLogin
     success_url = reverse_lazy('p2pApp:consultar_producto')

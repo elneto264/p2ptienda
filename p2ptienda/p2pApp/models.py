@@ -25,8 +25,11 @@ class Carrito(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1)
+    estado = models.BooleanField(default=True, verbose_name='Estado')
 
-
+    class Meta:
+        verbose_name = 'Carrito'
+        
     def __str__(self):
         return f'{self.cantidad} of {self.producto}'
 

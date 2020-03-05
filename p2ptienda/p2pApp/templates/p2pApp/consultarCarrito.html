@@ -10,18 +10,16 @@
     <div class="container productos ">
             {% for c in p2pApp %}
             <div class="card  proitems" style="width: 18rem;">
-                <img class="card-img-top" src="{{ c.producto_fields.url }}" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">{{ c.nombre }}</h5>
-                  <h5 class="card-title">{{ c.precio }}</h5>
-                  <h6 class="card-title">{{ c.fkCategoria }}</h6>
-                  <p class="card-text">{{ c.descripcion }}</p>
-                  <p class="Card">{{ c.id }}</p>
-                  <a href="{% url 'p2pApp:cesta' c.id %}"class="btn btn-primary">Al carrito</a>
+                  <h5 class="card-title">Nombre: {{ c.producto }}</h5>
+                  <h5 class="card-title">Cantidad: {{ c.cantidad }}</h5>
+                  <p class="Card">Cod. Identificador: {{ c.id }}</p>
+                  <a href="{% url 'p2pApp:eliminarCarrito' c.id %}"class="btn btn-primary">Eliminar del carrito</a>
                 </div>
             </div>
+            
             {% endfor %}
-        
+            {% comment %} <a href="{% url 'p2pApp:PagarCarrito' object.id%}"class="btn btn-primary">Pagar</a> {% endcomment %}
     </div>
 </section>
 {% endblock content%}
