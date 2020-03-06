@@ -34,5 +34,14 @@ class CarroForm(forms.ModelForm):
     class Meta:
         model = Carrito
         fields = [ 'cantidad']
-        labels= {'cantidad': 'Indique la cantidad deseada'}
+        labels= {'cantidad': 'Indique la cantidad'}
+
+        widgets={
+            'cantidad': forms.NumberInput(
+                attrs={'class':'form-control',
+                'id':'cantidad'
+                }
+            )
+
+        }       
 

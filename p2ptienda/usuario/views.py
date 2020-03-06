@@ -3,16 +3,9 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import FormView
 from django.contrib.auth import login,logout
 from django.http import HttpResponseRedirect
-from usuario.forms import FormularioLogin, RegistroForm
+from usuario.forms import FormularioLogin
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-from django.views.generic import CreateView
 
-class RegistroUsuario(CreateView):
-    model = User
-    template_name = "usuario/registrar.html"
-    form_class = RegistroForm #se coloca este cuando se quiera personalizar
-    success_url = reverse_lazy('login')
 
 class Login(FormView):
 
