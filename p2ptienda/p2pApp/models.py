@@ -22,6 +22,7 @@ class Producto(models.Model):
 
 class Carrito(models.Model):
     id = models.AutoField(primary_key = True)
+    nombre = models.CharField(max_length=20,null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1)

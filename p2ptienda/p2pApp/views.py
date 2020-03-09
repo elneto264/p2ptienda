@@ -13,7 +13,7 @@ class index(TemplateView):
 
 class Consultar_Producto(ListView):
     model = Producto
-    template_name = 'p2pApp/consultaTienda.html'
+    template_name = 'p2pApp/consultarTienda.html'
     context_object_name= 'p2pApp'
     queryset = Producto.objects.all()
 
@@ -54,6 +54,41 @@ class PagarCarrito(DeleteView):
         Carrito.objects.all().delete()
         context={}
         return render(request,'p2pApp:consultar_producto',context)
+
+class productosMujer(ListView):
+    model = Categoria
+    template_name = 'p2pApp/productosMujer.html'
+    context_object_name= 'p2pApp'
+    queryset = Categoria.objects.all()
+
+    def get_context_data(self,**kwargs):
+            context=super(productosMujer, self).get_context_data(**kwargs)
+            parametro = self.kwargs.get('pk', None)
+            context['mujer'] = Producto.objects.filter(fkCategoria_id=2)
+            
+            return context
+
+
+
+class productosHombre(ListView):
+    model = Producto
+    template_name = 'p2pApp/productosHombre.html'
+    context_object_name= 'p2pApp'
+    queryset = Producto.objects.filter(fkCategoria_id=1)
+
+
+class PagarCarrito(View):
+    model = Carrito
+    #success_url= reverse_lazy('p2pApp:consultar_producto')
+
+    def get(self, request,  *args, **kwargs):
+        Carrito.objects.all().delete()
+        return redirect('p2pApp:consultar_producto')
+
+
+
+
+
 
 
 

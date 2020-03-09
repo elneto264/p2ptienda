@@ -14,12 +14,12 @@
                   <h5 class="card-title">Nombre: {{ c.producto }}</h5>
                   <h5 class="card-title">Cantidad: {{ c.cantidad }}</h5>
                   <p class="Card">Cod. Identificador: {{ c.id }}</p>
-                  <a href="{% url 'p2pApp:eliminarCarrito' c.id %}"class="btn btn-primary">Eliminar del carrito</a>
+                  <a href="{% url 'p2pApp:eliminarCarrito' c.id %}" class="fas fa-trash-alt fa-2x"></a>
                 </div>
             </div>
             
             {% endfor %}
-            {% comment %} <a href="{% url 'p2pApp:PagarCarrito' object.id%}"class="btn btn-primary">Pagar</a> {% endcomment %}
+            <a href="{% url 'p2pApp:PagarCarrito' %}"class="btn btn-primary">Pagar</a>
     </div>
 </section>
 {% endblock content%}
